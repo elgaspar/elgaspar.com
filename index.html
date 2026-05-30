@@ -3,14 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
     <title>Elias Gasparis</title>
     <link rel="canonical" href="https://elgaspar.com">
     <meta name="theme-color" content="#E8E2D7">
-    <meta name="description"
-          content="Personal website of Elias Gasparis, a software engineer. View my CV, social links, and contact me.">
-    <meta name="description"
-          content="Software engineer. View my CV and connect with me.">
+    <meta name="description" content="Software engineer. View my CV and connect with me.">
     <meta property="og:title" content="Elias Gasparis – Software Engineer">
     <meta property="og:description"
           content="Personal website of Elias Gasparis, a software engineer. View my CV, social links, and contact me.">
@@ -27,48 +25,60 @@
     <meta property="og:image:height" content="630">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          rel="stylesheet">
     <link rel="preload" as="image" href="assets/portrait.webp">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Elias Gasparis",
+            "url": "https://elgaspar.com",
+            "jobTitle": "Software Engineer"
+        }
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="ambient"></div>
-    <div class="vignette"></div>
+<div class="ambient" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 
-    <main class="stage">
-        <div class="grid">
+<main class="stage">
+    <div class="grid">
 
-            <div class="col-type">
-                <h1 class="name reveal d1">Elias<span class="surname">Gasparis</span></h1>
-                <p class="role reveal d2"><strong>Software Engineer</strong></p>
-                <div class="actions">
-                    <a class="cv reveal d3" href="assets/cv-elias-gasparis-5-a.pdf" target="_blank" rel="noopener">
-                        View CV
-                    </a>
-                    <nav class="socials reveal d4" aria-label="Social links">
-                        <a href="https://github.com/elgaspar" target="_blank">GitHub</a>
-                        <a href="https://www.linkedin.com/in/iliasgas" target="_blank">LinkedIn</a>
-                        <a href="https://www.instagram.com/iliasgas" target="_blank">Instagram</a>
-                        <a href="https://www.goodreads.com/iliasgas" target="_blank">Goodreads</a>
-                        <a href="mailto:iliasgas@gmail.com">Email</a>
-                    </nav>
-                </div>
+        <div class="col-type">
+            <h1 class="name reveal d1">Elias<span class="surname">Gasparis</span></h1>
+            <p class="role reveal d2"><strong>Software Engineer</strong></p>
+            <div class="actions">
+                <a class="cv reveal d3" href="assets/cv-elias-gasparis-5-a.pdf" target="_blank"
+                   aria-label="View curriculum vitae PDF">
+                    View CV
+                </a>
+                <nav class="socials reveal d4" aria-label="Social links">
+                    <a href="https://github.com/elgaspar" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/iliasgas" target="_blank"
+                       rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.instagram.com/iliasgas" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.goodreads.com/iliasgas" target="_blank" rel="noopener noreferrer">Goodreads</a>
+                    <a href="mailto:iliasgas@gmail.com">Email</a>
+                </nav>
             </div>
-
-            <div class="col-art reveal d5">
-                <div class="portrait">
-                    <img src="assets/portrait.webp" alt="Elias Gasparis">
-                </div>
-            </div>
-
         </div>
-    </main>
-    <script>
-        requestAnimationFrame(function() {
-            requestAnimationFrame(function() {
-                document.body.classList.add('loaded');
-            });
+
+        <div class="col-art reveal d5">
+            <div class="portrait">
+                <img src="assets/portrait.webp" alt="Elias Gasparis" width="300" height="300">
+            </div>
+        </div>
+
+    </div>
+</main>
+<script>
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            document.body.classList.add('loaded');
         });
-    </script>
+    });
+</script>
 </body>
 </html>
