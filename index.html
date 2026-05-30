@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="loaded">
+<body>
     <div class="ambient"></div>
     <div class="vignette"></div>
 
@@ -60,5 +60,12 @@
 
         </div>
     </main>
+    <script>
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                document.body.classList.add('loaded');
+            });
+        });
+    </script>
 </body>
 </html>
