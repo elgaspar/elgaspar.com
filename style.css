@@ -22,29 +22,209 @@
 }
 
 body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Fredoka', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(46vw 46vw at 68% 42%, var(--glow), transparent 60%);
+}
+
+.vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(120% 120% at 50% 40%, transparent 55%, var(--shadow) 140%);
+    opacity: .5;
+}
+
+.stage {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--paper);
+    padding: 56px 40px;
 }
 
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.grid {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 1200px;
-    padding: 0 80px;
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: clamp(24px, 3vw, 44px);
+    align-items: center;
 }
 
-.hero-text {
+/* ── type column ── */
+.col-type {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    align-items: flex-start;
 }
 
-.social-links {
+.name {
+    font-family: 'Fredoka', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: clamp(56px, 8.6vw, 106px);
+    line-height: .95;
+    letter-spacing: -.01em;
+    margin: 0 0 0 -0.045em;
+    color: var(--ink);
+}
+
+.name .surname {
+    display: block;
+    color: var(--accent);
+}
+
+.role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 30px;
     display: flex;
-    gap: 16px;
+    gap: 13px;
+    align-items: center;
+}
+
+.role strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 40px;
+    margin-top: 64px;
+}
+
+.cv {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .02em;
+    color: var(--accent-ink);
+    background: var(--accent);
+    text-decoration: none;
+    padding: 13px 24px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 26px -12px var(--accent);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.cv svg {
+    width: 16px;
+    height: 16px;
+}
+
+.cv:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+    box-shadow: 0 16px 30px -12px var(--accent);
+}
+
+.socials {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    letter-spacing: .02em;
+    font-weight: 500;
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+}
+
+.socials a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.socials a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ── portrait column ── */
+.col-art {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.portrait {
+    position: relative;
+    width: 100%;
+    max-width: 372px;
+    aspect-ratio: 1 / 1;
+}
+
+.portrait img {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 112%;
+    height: auto;
+    filter: saturate(1.03) contrast(1.02);
+    mask-image: linear-gradient(to bottom, #000 93%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 93%, rgba(0,0,0,0) 100%);
+}
+
+/* ── entrance animation ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.loaded .reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+}
+
+.loaded .d1 { transition-delay: 0ms; }
+.loaded .d2 { transition-delay: 150ms; }
+.loaded .d3 { transition-delay: 300ms; }
+.loaded .d4 { transition-delay: 450ms; }
+.loaded .d5 { transition-delay: 600ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ── responsive ── */
+@media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; gap: 46px; max-width: 440px; }
+    .col-art { order: -1; }
+    .portrait { max-width: 300px; }
+}
+
+@media (max-width: 520px) {
+    .stage { padding: 44px 26px; }
 }
