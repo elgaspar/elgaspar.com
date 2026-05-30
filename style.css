@@ -1,17 +1,17 @@
 :root {
-    --paper:      #E8E2D7;
-    --paper-2:    #EFEAE0;
-    --card:       #F3EEE4;
+    --paper: #E8E2D7;
+    --paper-2: #EFEAE0;
+    --card: #F3EEE4;
 
-    --ink:        #2A2724;
-    --ink-soft:   #6E675C;
-    --ink-faint:  #9A9082;
-    --line:       #CFC7B8;
+    --ink: #2A2724;
+    --ink-soft: #6E675C;
+    --ink-faint: #9A9082;
+    --line: #CFC7B8;
 
-    --accent:     #C76B86;
+    --accent: #C76B86;
     --accent-ink: #FFFFFF;
 
-    --shadow:     rgba(42, 39, 36, .30);
+    --shadow: rgba(42, 39, 36, .30);
     --glow: rgba(199, 107, 134, .15);
 }
 
@@ -186,8 +186,8 @@ a:focus-visible {
     width: 100%;
     height: auto;
     filter: saturate(1.03) contrast(1.02);
-    mask-image: linear-gradient(to bottom, #000 93%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, #000 93%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, #000 93%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 93%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* ── entrance animation ── */
@@ -199,14 +199,28 @@ a:focus-visible {
 .loaded .reveal {
     opacity: 1;
     transform: none;
-    transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+    transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1);
 }
 
-.loaded .d1 { transition-delay: 0ms; }
-.loaded .d2 { transition-delay: 150ms; }
-.loaded .d3 { transition-delay: 300ms; }
-.loaded .d4 { transition-delay: 450ms; }
-.loaded .d5 { transition-delay: 600ms; }
+.loaded .d1 {
+    transition-delay: 0ms;
+}
+
+.loaded .d2 {
+    transition-delay: 150ms;
+}
+
+.loaded .d3 {
+    transition-delay: 300ms;
+}
+
+.loaded .d4 {
+    transition-delay: 450ms;
+}
+
+.loaded .d5 {
+    transition-delay: 600ms;
+}
 
 @media (hover: hover) {
     .cv:hover {
@@ -222,41 +236,101 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1 !important; transform: none !important; }
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
 
 @media (max-width: 880px) {
-    .stage { padding: 28px 40px 56px; }
+    .stage {
+        padding: 28px 40px 56px;
+    }
+
     .grid {
         flex-direction: column;
         gap: 32px;
         max-width: 440px;
     }
-    .col-art { order: -1; justify-content: center; }
-    .portrait { max-width: 250px; }
+
+    .col-art {
+        order: -1;
+        justify-content: center;
+    }
+
+    .portrait {
+        max-width: 250px;
+        aspect-ratio: auto; /* Needed for Safari */
+    }
+
     .portrait img {
         position: static;
         transform: none;
         width: 100%;
     }
-    .col-type { align-items: center; }
-    .name { text-align: center; margin-left: 0; }
-    .role { justify-content: center; }
-    .cv { width: 100%; justify-content: center; }
-    .socials { flex-wrap: wrap; white-space: normal; justify-content: center; font-size: 12.5px; }
-    .actions { margin-top: 52px; }
 
-    .loaded .d5 { transition-delay: 0ms; }
-    .loaded .d1 { transition-delay: 150ms; }
-    .loaded .d2 { transition-delay: 300ms; }
-    .loaded .d3 { transition-delay: 450ms; }
-    .loaded .d4 { transition-delay: 600ms; }
+    .col-type {
+        align-items: center;
+    }
+
+    .name {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .role {
+        justify-content: center;
+    }
+
+    .cv {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .socials {
+        flex-wrap: wrap;
+        white-space: normal;
+        justify-content: center;
+        font-size: 12.5px;
+    }
+
+    .actions {
+        margin-top: 52px;
+    }
+
+    .loaded .d5 {
+        transition-delay: 0ms;
+    }
+
+    .loaded .d1 {
+        transition-delay: 150ms;
+    }
+
+    .loaded .d2 {
+        transition-delay: 300ms;
+    }
+
+    .loaded .d3 {
+        transition-delay: 450ms;
+    }
+
+    .loaded .d4 {
+        transition-delay: 600ms;
+    }
 }
 
 @media (max-width: 520px) {
-    .stage { padding: 28px 26px 44px; }
-    .name { font-size: clamp(40px, 11vw, 56px); }
-    .portrait img { width: 112%; }
+    .stage {
+        padding: 28px 26px 44px;
+    }
+
+    .name {
+        font-size: clamp(40px, 11vw, 56px);
+    }
+
+    .portrait img {
+        width: 100%;
+    }
 }
 
 @media (max-width: 400px) {
