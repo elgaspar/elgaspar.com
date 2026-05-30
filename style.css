@@ -12,7 +12,7 @@
     --accent-ink: #FFFFFF;
 
     --shadow:     rgba(42, 39, 36, .30);
-    --glow:       rgba(199, 107, 134, .30);
+    --glow: rgba(199, 107, 134, .15);
 }
 
 *, *::before, *::after {
@@ -35,7 +35,11 @@ body {
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background: radial-gradient(46vw 46vw at 68% 42%, var(--glow), transparent 60%);
+    background: radial-gradient(
+            46vw 46vw at 72% 45%,
+            var(--glow),
+            transparent 60%
+    );
 }
 
 .vignette {
@@ -63,8 +67,7 @@ body {
 
     display: flex;
     align-items: center;
-    gap: 85px;
-
+    gap: clamp(48px, 8vw, 85px);
     width: fit-content;
     margin: 0 auto;
 
@@ -133,13 +136,6 @@ body {
     align-items: center;
     gap: 10px;
     box-shadow: 0 10px 26px -12px var(--accent);
-    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-}
-
-.cv:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.04);
-    box-shadow: 0 16px 30px -12px var(--accent);
 }
 
 .socials {
@@ -162,9 +158,9 @@ body {
     transition: color .2s ease, transform .2s ease;
 }
 
-.socials a:hover {
-    color: var(--accent);
-    transform: translateY(-2px);
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 /* ── portrait column ── */
@@ -212,11 +208,23 @@ body {
 .loaded .d4 { transition-delay: 450ms; }
 .loaded .d5 { transition-delay: 600ms; }
 
+@media (hover: hover) {
+    .cv:hover {
+        transform: none;
+        filter: brightness(1.04);
+        box-shadow: 0 16px 30px -12px var(--accent);
+    }
+
+    .socials a:hover {
+        color: var(--accent);
+        transform: translateY(-2px);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1 !important; transform: none !important; }
 }
 
-/* ── responsive ── */
 @media (max-width: 880px) {
     .stage { padding: 28px 40px 56px; }
     .grid {
@@ -237,6 +245,12 @@ body {
     .cv { width: 100%; justify-content: center; }
     .socials { flex-wrap: wrap; white-space: normal; justify-content: center; font-size: 12.5px; }
     .actions { margin-top: 52px; }
+
+    .loaded .d5 { transition-delay: 0ms; }
+    .loaded .d1 { transition-delay: 150ms; }
+    .loaded .d2 { transition-delay: 300ms; }
+    .loaded .d3 { transition-delay: 450ms; }
+    .loaded .d4 { transition-delay: 600ms; }
 }
 
 @media (max-width: 520px) {
@@ -247,6 +261,6 @@ body {
 
 @media (max-width: 400px) {
     .portrait {
-        width: 200px;
+        width: 220px;
     }
 }
