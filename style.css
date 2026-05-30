@@ -59,12 +59,16 @@ body {
 .grid {
     position: relative;
     z-index: 1;
-    width: 100%;
-    max-width: 920px;
-    display: grid;
-    grid-template-columns: 0.8fr 1fr;
-    gap: clamp(24px, 3vw, 44px);
+
+
+    display: flex;
     align-items: center;
+    gap: 85px;
+
+    width: fit-content;
+    margin: 0 auto;
+
+    max-width: 920px;
 }
 
 /* ── type column ── */
@@ -173,8 +177,7 @@ body {
 
 .portrait {
     position: relative;
-    width: 100%;
-    max-width: 372px;
+    width: 300px;
     aspect-ratio: 1 / 1;
 }
 
@@ -182,9 +185,9 @@ body {
     display: block;
     position: absolute;
     left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 112%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     height: auto;
     filter: saturate(1.03) contrast(1.02);
     mask-image: linear-gradient(to bottom, #000 93%, rgba(0,0,0,0) 100%);
@@ -216,10 +219,18 @@ body {
 /* ── responsive ── */
 @media (max-width: 880px) {
     .stage { padding: 28px 40px 56px; }
-    .grid { grid-template-columns: 1fr; gap: 32px; max-width: 440px; }
+    .grid {
+        flex-direction: column;
+        gap: 32px;
+        max-width: 440px;
+    }
     .col-art { order: -1; justify-content: center; }
-    .portrait { max-width: 300px; }
-    .portrait img { width: 122%; }
+    .portrait { max-width: 250px; }
+    .portrait img {
+        position: static;
+        transform: none;
+        width: 100%;
+    }
     .col-type { align-items: center; }
     .name { text-align: center; margin-left: 0; }
     .role { justify-content: center; }
@@ -232,4 +243,10 @@ body {
     .stage { padding: 28px 26px 44px; }
     .name { font-size: clamp(40px, 11vw, 56px); }
     .portrait img { width: 112%; }
+}
+
+@media (max-width: 400px) {
+    .portrait {
+        width: 200px;
+    }
 }
