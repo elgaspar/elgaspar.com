@@ -117,7 +117,7 @@ body {
 
 .cv {
     font-family: 'Hanken Grotesk', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
     letter-spacing: .02em;
     color: var(--accent-ink);
@@ -130,11 +130,6 @@ body {
     gap: 10px;
     box-shadow: 0 10px 26px -12px var(--accent);
     transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-}
-
-.cv svg {
-    width: 16px;
-    height: 16px;
 }
 
 .cv:hover {
